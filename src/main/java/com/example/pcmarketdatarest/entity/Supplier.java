@@ -10,14 +10,19 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Data
 @Entity
-public class Category {
+public class Supplier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(nullable = false)
-    private String name;
+    private String fullName;
 
-    @ManyToOne
-    private Category category;
+    @Column(nullable = false)
+    private String email;
+
+    @Column(nullable = false)
+    private String phoneNumber;
+
+    private String messageBody;
 }

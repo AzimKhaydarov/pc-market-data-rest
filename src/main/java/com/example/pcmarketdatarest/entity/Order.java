@@ -9,15 +9,16 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity
-public class Category {
+@Entity(name = "orders")
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
-    private String name;
+    private String date;
 
-    @ManyToOne
-    private Category category;
+    @OneToOne
+    private UserBasket userBasket;
+
+    private String details;
 }

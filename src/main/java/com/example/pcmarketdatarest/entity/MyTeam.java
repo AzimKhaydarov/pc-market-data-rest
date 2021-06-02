@@ -10,14 +10,15 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Data
 @Entity
-public class Category {
+public class MyTeam {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
     private String name;
 
-    @ManyToOne
-    private Category category;
+    private String occupation;
+
+    @OneToOne
+    private Attachment attachment;
 }

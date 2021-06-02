@@ -5,22 +5,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.Set;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Entity
-public class OrderList {
+public class UserBasket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Date date;
-    private String orderNumber;
-    @OneToMany
-    private Set <Product> product;
-    private Integer quantity;
+
     @OneToOne
-    private Users users;
+    private OutputProduct outputProduct;
+
+    private Double allSum;
+
+    @ManyToOne
+    private User user;
 }

@@ -14,19 +14,18 @@ import java.io.IOException;
 public class AttachmentController {
     @Autowired
     AttachmentService attachmentService;
-
-    @GetMapping("/{id}")
-    public void getById(@PathVariable Integer id, HttpServletResponse response) throws IOException {
-        attachmentService.getById(id,response);
-    }
-
     @PostMapping
     public Attachment add(MultipartHttpServletRequest request) throws IOException {
-        return attachmentService.add(request);
+        Attachment add = attachmentService.add(request);
+        return add;
     }
-
-    @DeleteMapping
+    @GetMapping("/{id}")
+    public void getById(@PathVariable Integer id, HttpServletResponse response) throws IOException {
+        attachmentService.getById(id, response);
+    }
+    @DeleteMapping("/{id}")
     public void deleteById(Integer id){
         attachmentService.deleteById(id);
     }
+
 }

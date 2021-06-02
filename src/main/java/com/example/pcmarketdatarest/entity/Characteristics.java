@@ -6,16 +6,20 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Entity
-public class Delivery {
-    @Id@GeneratedValue (strategy = GenerationType.IDENTITY)
+public class Characteristics {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String invoiceNumber;
-    @OneToOne
-    private Payment payment;
-    private boolean accomplished;
+    @Column(nullable = false)
+    private String name;
+
+    private Integer size;
+
+    @ManyToOne
+    private Product product;
 }

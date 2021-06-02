@@ -5,6 +5,7 @@ import com.example.pcmarketdatarest.projection.CustomDistrict;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-@RepositoryRestResource(path = "district", collectionResourceRel = "list", excerptProjection = CustomDistrict.class)
+@RepositoryRestResource(path = "district", collectionResourceRel = "list_info",excerptProjection = CustomDistrict.class)
 public interface DistrictRepository extends JpaRepository<District, Integer> {
+
 }
